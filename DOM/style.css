@@ -1,0 +1,56 @@
+.text {
+    color: rgb(255, 255, 255);
+}
+
+.divContainer {
+    font-family: 'Courier New', Courier, monospace;
+    word-spacing: 8px;
+    color: aliceblue;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    background-color: aqua;
+    padding: 128px;
+    background-image: url(../DOM/Assets/image/wp2936859-computer-code-wallpaper-1920x1080.jpg);
+}
+
+
+.btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.button {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 16px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 3px 3px 8px rgb(4, 77, 55);
+    background-color: hwb(130 11% 45%);
+}
+
+
+.button:hover {
+    background-color: rgba(206, 206, 206, 0.418);
+    background-image: url(../DOM/Assets/image/wp2936859-computer-code-wallpaper-1920x1080.jpg);
+    background-size: cover;
+    color: white;
+    box-shadow: 8px 8px 4px rgb(4, 77, 55);
+}
+
+
+.input {
+    outline: none;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 16px;
+    border: none;
+    padding: 16px;
+    background-color: rgba(24, 71, 56, 0.212);
+}
+
+
+.input:hover {
+    background-color: rgb(203, 219, 214);
+}
