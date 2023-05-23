@@ -6,13 +6,14 @@
     font-family: 'Courier New', Courier, monospace;
     word-spacing: 8px;
     color: aliceblue;
-    margin-top: 50px;
+    margin-top: 32px;
     display: flex;
     justify-content: center;
     gap: 16px;
     background-color: aqua;
     padding: 128px;
     background-image: url(../DOM/Assets/image/wp2936859-computer-code-wallpaper-1920x1080.jpg);
+    box-shadow: 4px 4px 8px rgb(20, 65, 20);
 }
 
 
@@ -28,7 +29,7 @@
     border-radius: 8px;
     border: none;
     box-shadow: 3px 3px 8px rgb(4, 77, 55);
-    background-color: hwb(130 11% 45%);
+    background-color: #0e5e1b;
 }
 
 
@@ -53,4 +54,9 @@
 
 .input:hover {
     background-color: rgb(203, 219, 214);
+}
+
+#menu a{
+    display: flex;
+    justify-content: center;
 }

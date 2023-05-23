@@ -1,9 +1,12 @@
 function inicializar() {
-
   console.log(`Onload se ha llamado`);
-  const divContainer = document.getElementById("container");
-  divContainer.innerHTML = "<p>Div modificado</p>";
-  
+  //const divContainer = document.getElementById("container");
+
+  new Menu([
+    { url: "index.html", etiqueta: "Home" },
+    { url: "login.html", etiqueta: "Login" },
+    { url: "registro.html", etiqueta: "Registro" },
+  ]).render();
 
   const users = [
     {
@@ -50,32 +53,29 @@ function inicializar() {
     },
   ];
 
-  const result = [];
-  for (const item of users) {
-    divContainer.innerHTML += `<li>Nombre:<strong>${item.name}</strong>, Edad:<strong>${item.age}</strong> </li>`;
-  };
+  new usuario(users).render();
 
-  console.log(result);
+  // const result = [];
+  // for (const usuario of users) {
+  //   divContainer.innerHTML += `<li>Nombre:<strong>${usuario.name}</strong>, Edad:<strong>${usuario.age}</strong> </li>`;
+  // }
 
-};
+  // console.log(result);
+}
 
-
-function login (){
-
+function login() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   const error = document.getElementById("error");
   const iniciarSesion = document.getElementById("iniciarSesion");
 
-
-  if (email === "smj_personal@hotmail.com" && password === "12345"){
-    iniciarSesion.innerHTML = "<p>Has iniciado sesion</p>"
+  if (email === "smj_personal@hotmail.com" && password === "12345") {
+    iniciarSesion.innerHTML = "<p>Has iniciado sesion</p>";
     console.log(`Has iniciado sesion`);
   } else {
-    error.innerHTML = "<p>Email o contraseña incorrectos</p>"
+    error.innerHTML = "<p>Email o contraseña incorrectos</p>";
     console.log(`Algo mal estas haciendo`);
-  };
-
+  }
 
   // if (email === "smj_personal@hotmail.com"){
   //   console.log(`Correcto`);
@@ -88,11 +88,38 @@ function login (){
   // } else {
   //   errorPassword.innerHTML = "<p>Contraseña Incorrecta/p>"
   // }
+}
 
-};
+function Menu(links) {
+  // propiedades
+  (this.links = links),
+    // metodos
+    (this.render = function () {
+      let menuDiv = document.getElementById("menu");
+      for (const link of this.links) {
+        menuDiv.innerHTML += `<a href='${link.url}'>${link.etiqueta}</a>`;
+      }
+    });
+}
 
+function usuario(usuarios) {
+  this.usuarios = usuarios;
+  this.render = function () {
+    let divUsuarios = document.getElementById("container");
+    for (const u of usuarios) {
+      divUsuarios.innerHTML += `<li><strong>Nombre:</strong> ${u.name}  <strong>Edad:</strong> ${u.age}</li>`;
+    }
+  };
+}
 
-
-
-
-
+// function usuario(usuarios) {
+//   this.usuarios = usuarios;
+//   this.render = function () {
+//     let userDiv = document.getElementById("container");
+//     userDiv.innerHTML = "<ul>";
+//     for (const u of usuarios) {
+//       userDiv.innerHTML += `<li>${u.this.usuarios}</li>`;
+//     }
+//     userDiv.innerHTML = "</ul>";
+//   };
+// }
