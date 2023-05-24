@@ -1,4 +1,4 @@
-.text {
+/* .text {
     color: rgb(255, 255, 255);
 }
 
@@ -15,7 +15,6 @@
     background-image: url(../DOM/Assets/image/wp2936859-computer-code-wallpaper-1920x1080.jpg);
     box-shadow: 4px 4px 8px rgb(20, 65, 20);
 }
-
 
 .btn {
     display: flex;
@@ -59,4 +58,85 @@
 #menu a{
     display: flex;
     justify-content: center;
+} */
+
+.container{
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../DOM/Assets/image/wallpaperflare.com_wallpaper.jpg);
+    background-size: auto;
+    background-position: bottom;
+    background-color:rgb(48, 48, 56);
+    padding: 128px;
 }
+
+.container:hover{
+    background-image: linear-gradient(#0c434d63,#8858cb65), url(../DOM/Assets/image/wallpaperflare.com_wallpaper.jpg);
+    
+}
+
+.formulario input{
+    color: #62a3c2;
+    border-radius: 8px;
+    padding: 8px;
+    border: none;
+    box-shadow: 2px 2px 4px #852966;
+    outline: none;
+
+}
+
+.formulario input:hover{
+    color: #ffffff;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.836), rgba(255, 255, 255, 0.616)), url(../DOM/Assets/image/wallpaperflare.com_wallpaper.jpg);
+    background-position: bottom;
+    background-color: #84358b7a;
+}
+
+.btn{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+    padding: 32px;
+}
+
+.button{
+    color: #ffffff;
+    background-color: #29856600;
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.button:hover{
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0);
+    transition: 200ms;
+    box-shadow: 6px 6px 1px #852966;
+}
+
+.mensaje{
+    color: #852966;
+    font-size: 32px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #852966;
+}
+
+.mensaje2{
+    color: #298566;
+    font-size: 32px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #852966;
+}
+
