@@ -2,6 +2,9 @@ function inicializar() {
   console.log(`Onload se ha llamado`);
   //const divContainer = document.getElementById("container");
 
+  const localStorage = window.localStorage;
+  localStorage.setItem("usuario", "Santi");
+
   new Menu([
     { url: "index.html", etiqueta: "Home" },
     { url: "login.html", etiqueta: "Login" },

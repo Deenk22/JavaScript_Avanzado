@@ -55,10 +55,17 @@
     background-color: rgb(203, 219, 214);
 }
 
-#menu a{
+/* #menu a{
     display: flex;
     justify-content: center;
-} */
+} */ 
+
+
+.enlace a{
+    display: inline-block;
+    justify-content: cen;
+}
+
 
 .container{
     color: #ffffff;
@@ -90,9 +97,8 @@
 
 .formulario input:hover{
     color: #ffffff;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.836), rgba(255, 255, 255, 0.616)), url(../DOM/Assets/image/wallpaperflare.com_wallpaper.jpg);
     background-position: bottom;
-    background-color: #84358b7a;
+    background-color: #84358b;
 }
 
 .btn{

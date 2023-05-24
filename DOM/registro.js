@@ -1,19 +1,34 @@
-function inicializar (){
-    const loginFrom = new formularioLogin();
-    loginFrom.render();
+function inicializar() {
+  // Creamos una variable y le asignamos la función constructora
+  const registroFrom = new formularioRegistro();
+  registroFrom.render();
+
+  const localStorage = window.localStorage;
+  console.log(localStorage.getItem("usuario"));
+
+  new Menu([
+    { url: "index.html", etiqueta: "Home" },
+    { url: "login.html", etiqueta: "Login" },
+    { url: "registro.html", etiqueta: "Registro" },
+  ]).render();
 }
 
-function login() {
+function Menu(links) {
+  // propiedades
+  (this.links = links),
+    // metodos
+    (this.render = function () {
+      let menuDiv = document.getElementById("menu");
+      for (const link of this.links) {
+        menuDiv.innerHTML += `<a href='${link.url}'>${link.etiqueta}</a>`;
+      }
+    });
 }
 
-function formularioLogin() {
-
-    this.render = function () {
-  
-      const login = document.getElementById("registro");
-      login.innerHTML = 
-      
-      `<div class="formulario">
+function formularioRegistro() {
+  this.render = function () {
+    const registro = document.getElementById("registro");
+    registro.innerHTML = `<div class="formulario">
 
       <label for="nombre">
           Nombre
@@ -24,12 +39,7 @@ function formularioLogin() {
           Apellidos
               <input type="text" name="apellido" placeholder="Apellidos">
       </label>
-
-      <label for="tel">
-          Telefono
-              <input type="tel" name="telefono" id="telefono" placeholder="Telefono">
-      </label>
-
+      
       <label for="email">
           Email
               <input type="email" name="email" id="email" placeholder="Email">            
@@ -40,53 +50,33 @@ function formularioLogin() {
               <input type="password" name="password" id="password" placeholder="Password">
       </label>
 
+      <label for="password2">
+          Repeat
+              <input type="password" name="password" id="password2" placeholder="Repeat Password">
+      </label>
+
       <div class="btn">
-          <button id="login" class="button" onclick="login()">Pulsa aqui para registrarte</button>
+          <button id="registr" class="button" onclick="login()" >Pulsa aqui para registrarte</button>
       </div>
       
   </div> `;
-  
-      const loginButton = document.getElementById("login");
-      loginButton.addEventListener("click", this.login);  
-  
-    };
 
+    const loginButton = document.getElementById("registr");
+    loginButton.addEventListener("click", this.registro);
+  };
 
-    this.login = function (){
+  this.registro = function () {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const password2 = document.getElementById("password2").value;
+    const error = document.getElementById("error");
 
-            const nombre = document.getElementById("nombre").value;
-            const telefono = document.getElementById("telefono").value;
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            const error = document.getElementById("error");
-            const iniciarSesion = document.getElementById("iniciarSesion");
-        
-            if (email === "smj_personal@hotmail.com" && password === "12345"){
-                iniciarSesion.innerHTML = "<p>Te has registrado correctamente</p>"
-                console.log(`Has iniciado sesion`);
-            } else {
-                error.innerHTML = "<p>Email o contraseña incorrectos</p>";
-            };
-        
-            // if (isNaN(telefono)){
-            //     console.log(`Solo Números`);
-            //     error.innerHTML = "<p>Solo números en campo: Telefono.</p>"
-            // } else if (!isNaN(nombre)){
-            //     console.log(`No aceptamos valores numéricos en campo: Nombre`);
-            //     error.innerHTML = "<p>Solo letras en campo: Nombre.</p>"
-            // };
-        
-            // if (email === "smj_personal@hotmail.com" && password === "12345"){
-            //     iniciarSesion.innerHTML = "<p>Has iniciado sesion</p>"
-            //     console.log(`Has iniciado sesion`);
-            // } else {
-            //     error.innerHTML = "<p>Email o contraseña incorrectos</p>"
-            //     error.innerHTML = "<p>Debes rellenar todos los campos</p>"
-        
-            // };
-        
-        
-        } ;
-    };
+    if (password !== "" && email !== "" && password === password2) {
+      window.location.href = "index.html";
+    } else {
+      error.innerHTML = "<p>Algo has hecho mal</p>";
+    }
 
-
+    //Crear las condiciones con el correo decir que tenga un @ que no empiece por la @ y que empiecepor letra o algo asi.
+  };
+}
