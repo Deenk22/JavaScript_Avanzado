@@ -1,25 +1,36 @@
 function inicializar() {
+
   const loginFrom = new formularioLogin();
   loginFrom.render();
 
   new Menu([
+    
     { url: "index.html", etiqueta: "Home" },
     { url: "login.html", etiqueta: "Login" },
     { url: "registro.html", etiqueta: "Registro" },
+
   ]).render();
+
 }
 
+// function login(){
+// }
+
 function Menu(links) {
-  // propiedades
-  (this.links = links),
-    // metodos
-    (this.render = function () {
+
+      this.links = links,
+      
+      this.render = function () {
+
       let menuDiv = document.getElementById("menu");
       for (const link of this.links) {
-        menuDiv.innerHTML += `<a href='${link.url}'>${link.etiqueta}</a>`;
-      }
-    });
-}
+      menuDiv.innerHTML += `<a href='${link.url}'>${link.etiqueta}</a>`;
+
+      };
+
+    };
+
+};
 
 
 function formularioLogin() {
@@ -41,15 +52,17 @@ function formularioLogin() {
 
     <div class="btn">
 
-    <button id="login" class="button" onclick="login()">Iniciar Sesion</button>
+    <button id="login" class="button">Iniciar Sesion</button>
     
     </div>`;
 
     const loginButton = document.getElementById("login");
     loginButton.addEventListener("click", this.login);
+
   };
 
   this.login = function () {
+
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const error = document.getElementById("error");
@@ -61,6 +74,9 @@ function formularioLogin() {
     } else {
       console.log(`Algo estas haciendo mal`);
       error.innerHTML = `<p>Email o contraseña incorrectos</p>`;
-    }
+
+    };
+
   };
-}
+
+};
