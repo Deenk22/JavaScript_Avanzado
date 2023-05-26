@@ -73,7 +73,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../DOM/Assets/image/wallpaperflare.com_wallpaper.jpg);
+    background-image: url(../Assets/wallpaperflare.com_wallpaper.jpg);
     background-size: auto;
     background-position: bottom;
     background-color:rgb(48, 48, 56);
@@ -81,8 +81,20 @@
 }
 
 .container:hover{
-    background-image: linear-gradient(#0c434d63,#8858cb65), url(../DOM/Assets/image/wallpaperflare.com_wallpaper.jpg);
-    
+    background-image: linear-gradient(#0c434d63,#8858cb65), url(../Assets/wallpaperflare.com_wallpaper.jpg);
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.formulario label{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .formulario input{
@@ -92,13 +104,22 @@
     border: none;
     box-shadow: 2px 2px 4px #852966;
     outline: none;
-
 }
+
+.formulario input:focus{
+    transition: 150ms;
+    color: rgb(255, 255, 255);
+    background-color:rgba(186, 216, 216, 0);
+    box-shadow: -3px -3px 2px #84358b;
+    transition: 150ms;
+}
+
 
 .formulario input:hover{
     color: #ffffff;
     background-position: bottom;
     background-color: #84358b;
+    transition: 100ms;
 }
 
 .btn{
@@ -123,7 +144,7 @@
     color: #ffffff;
     background-color: rgba(0, 0, 0, 0);
     transition: 200ms;
-    box-shadow: 6px 6px 1px #852966;
+    box-shadow: 2px 2px 2px #852966;
 }
 
 .mensaje{

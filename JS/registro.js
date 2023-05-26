@@ -103,7 +103,7 @@ function formularioRegistro() {
       </label>
 
       <label for="password2">
-          Repeat
+          Repeat Password
               <input type="password" name="password" id="password2" placeholder="Repeat Password">
       </label>
 
@@ -120,27 +120,40 @@ function formularioRegistro() {
 
   this.registro = function () {
 
-    let datos = [{}];
-
-    const nombre = document.getElementById("nombre").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const password2 = document.getElementById("password2").value;
     const error = document.getElementById("error");
-
+    
+    // En esta linea se asigna a la constante baseDatos el objeto localStorage que es una interfaz proporcionada por el navegador que permite almacenar datos.
+    
+    const baseDatos = window.localStorage;
+    let usuarios = JSON.parse(baseDatos.getItem("usuarios")) || [];
+  
     if (password !== "" && email !== "" && password === password2){
-      localStorage.setItem(nombre, email);
-      datos.push(email);
-      window.location.href = "index.html";
+
+      // Usamos el método o función "FIND" del array "usuarios" para hacer la comprobación. Si el susuario existe, la constante comprobacion obtendra un valor y nos saltará el mensaje de rror... en caso contrario será "UNDEFINED" y pasará directamente al ELSE.
+
+      const comprobacion = usuarios.find((newUsuario) => newUsuario.email === email);
+
+      if (comprobacion){
+        error.innerHTML = "<p>El email ya ha sido registrado</p>"
+      } else {
+        usuarios.push({email,password});
+        baseDatos.setItem("usuarios", JSON.stringify(usuarios))
+        window.location.href = "index.html";
+      }
+
     } else {
       error.innerHTML = "<p>Rellena bien los campos, siento no ser tan específico :)</p>";
-    };
 
-    //Crear las condiciones con el correo decir que tenga un @ que no empiece por la @ y que empiecepor letra o algo asi.
+    };
 
   };
 
 };
+
+
 
 
 
