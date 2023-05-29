@@ -21,7 +21,7 @@
 // - onload
 // - onError
 
-http.onreadystatechange = function(){
+// http.onreadystatechange = function(){
     
 // En este clg mostramos el estado actual de la solicitud en la consola de nuestro navegador. 
 
@@ -53,7 +53,7 @@ http.onreadystatechange = function(){
 
         new registroDatos (datos.entries).render();
         };
-    };
+// };
 
 
 // Abrimos la solicitud GET.
